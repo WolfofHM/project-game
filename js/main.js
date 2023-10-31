@@ -7,48 +7,65 @@ class Player {
 
 
         const playerElm = document.getElementById("player");
-        playerElm.style.width = this.width +"px";
-        playerElm.style.height = this.height +"px";
+        playerElm.style.width = this.width + "px";
+        playerElm.style.height = this.height + "px";
 
-        playerElm.style.bottom = this.positionY + "px"
-        playerElm.style.left = this.positionX + "px"
-        
+        playerElm.style.bottom = this.positionY + "px";
+        playerElm.style.left = this.positionX + "px";
+
     }
 
-    moveUp(){   
-        this.positionY++;
+    moveUp() {
+        this.positionY+=50;
+
+        const elm = document.getElementById("player");
+        elm.style.bottom = this.positionY + "px";
+
         console.log(`jumping... ${this.positionY}`)
+        
         setTimeout(() => {
             this.moveDown();
-        }, 1000);
+        }, 2000); 
     }
-    moveRight(){
-        this.positionX++;
-        console.log(`moving to the right... ${this.positionX}`)
+    moveRight() {
+        this.positionX+=10;
+
+        const elm = document.getElementById("player");
+        elm.style.left = this.positionX + "px";
     }
     moveLeft() {
-        this.positionX--;
-        console.log(`moving to the left... ${this.positionX}`)
+        this.positionX-=10;
+       
+        const elm = document.getElementById("player");
+        elm.style.left = this.positionX + "px";
     }
     moveDown() {
-        this.positionY--;
-        console.log(`Moving down... ${this.positionY}`);
+        this.positionY-= 50;
+
+        const elm = document.getElementById("player");
+        elm.style.bottom = this.positionY +"px";
+        
     }
 }
 
 
 const player = new Player();
-player.moveLeft();
-player.moveRight();
-player.moveUp();
 
 
-class Block {
-    constructor() {
-        this.positionX = 50;
-        this.positionY = 0;
-        this.height = 40;
-        this.width = 40;
+document.addEventListener("keydown", (e) => {
+    switch (e.key) {
+        case "a":
+            console.log("pressed left");
+            player.moveLeft();
+            break;
+        case "d":
+            console.log("pressed right");
+            player.moveRight();
+            break;
+        case "w":
+            console.log("pressed up");
+            player.moveUp();
+            break;
     }
+});
 
-}
