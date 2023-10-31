@@ -1,7 +1,7 @@
 body {
     background-color: rgb(68, 131, 186);
 }
- #board{
+ #game {
     width: 500px;
     height: 300px;
     position: relative;
@@ -19,8 +19,8 @@ body {
     
 
 } 
-#block {
-    background-color: green;
+.block {
+
+    background-color: rgb(40, 84, 110);
     position: absolute;
-  
 }
