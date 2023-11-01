@@ -3,7 +3,7 @@ class Player {
         this.positionX = 0;
         this.positionY = 0;
         this.height = 50;
-        this.width = 30;
+        this.width = 20;
 
 
         const playerElm = document.getElementById("player");
@@ -81,7 +81,65 @@ class Block {
     }
 }
 
+class bigBlock {
+    constructor() {
+        this.positionX = 500;
+        this.positionY = 0;
+        this.height = 80;
+        this.width = 50;
+        this.bigBlockElm = null;
+
+        this.createDomElement();
+
+
+
+    }
+    createDomElement() {
+        this.bigBlockElm = document.createElement("div");
+
+        this.bigBlockElm.classList.add("bigBlock");
+        this.bigBlockElm.style.width = this.width + "px";
+        this.bigBlockElm.style.height = this.height + "px";
+        this.bigBlockElm.style.left = this.positionX + "px";
+        this.bigBlockElm.style.bottom = this.positionY + "px";
+
+
+        const parentElm = document.getElementById("game");
+        parentElm.appendChild(this.bigBlockElm);
+    }
+    moveLeft() {
+        this.positionX -= 10;
+        this.bigBlockElm.style.left = this.positionX + "px"
+
+    }
+}
+
 const player = new Player();
+
+const bigBlockArr = [];
+
+setInterval(() => {
+    const newBigBlock = new bigBlock();
+    bigBlockArr.push(newBigBlock);
+}, 7000);
+
+setInterval(() => {
+    bigBlockArr.forEach((bigBlockInstance) => {
+       
+        bigBlockInstance.moveLeft();
+       
+        if (
+            player.positionX < bigBlockInstance.positionX + bigBlockInstance.width &&
+            player.positionX + player.width > bigBlockInstance.positionX &&
+            player.positionY < bigBlockInstance.positionY + bigBlockInstance.height &&
+            player.positionY + player.height > bigBlockInstance.positionY
+         ) {
+            console.log("game over")
+            location.href = "./gameover.html";
+        }
+        
+    });
+}, 50);
 
 const blockArr = [];
 
@@ -89,7 +147,7 @@ const blockArr = [];
 setInterval(() => {
     const newBlock = new Block();
     blockArr.push(newBlock);
-}, 2000);
+}, 3000);
 
 setInterval(() => {
     blockArr.forEach((blockInstance) => {

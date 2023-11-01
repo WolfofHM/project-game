@@ -2,8 +2,8 @@ body {
     background-color: rgb(68, 131, 186);
 }
  #game {
-    width: 500px;
-    height: 300px;
+    width: 800px;
+    height: 400px;
     position: relative;
     border: 20px black;
     background-color: aquamarine;
@@ -23,5 +23,10 @@ body {
 
     background-color: rgb(40, 84, 110);
     position: absolute;
+}
+.bigBlock {
+    background-color: yellow;
+
+position: absolute;
 }
 
