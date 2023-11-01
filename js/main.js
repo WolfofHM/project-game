@@ -85,9 +85,7 @@ const player = new Player();
 
 const blockArr = [];
 
-/*setInterval(() => {
-    blo1.moveLeft();
-}, 1000);*/
+
 setInterval(() => {
     const newBlock = new Block();
     blockArr.push(newBlock);
@@ -95,7 +93,19 @@ setInterval(() => {
 
 setInterval(() => {
     blockArr.forEach((blockInstance) => {
+       
         blockInstance.moveLeft();
+       
+        if (
+            player.positionX < blockInstance.positionX + blockInstance.width &&
+            player.positionX + player.width > blockInstance.positionX &&
+            player.positionY < blockInstance.positionY + blockInstance.height &&
+            player.positionY + player.height > blockInstance.positionY
+         ) {
+            console.log("game over")
+            location.href = "./gameover.html";
+        }
+        
     });
 }, 50);
 
