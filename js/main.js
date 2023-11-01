@@ -54,6 +54,7 @@ class Block {
         this.positionY = 0;
         this.height = 30;
         this.width = 30;
+        this.blockElm = null;
 
         this.createDomElement();
 
@@ -61,33 +62,42 @@ class Block {
 
     }
     createDomElement() {
-        const newElm = document.createElement("div");
+        this.blockElm = document.createElement("div");
 
-        newElm.classList.add("block");
-        newElm.style.width = this.width + "px";
-        newElm.style.height = this.height + "px";
-        newElm.style.left = this.positionX + "px";
-        newElm.style.bottom = this.positionY + "px";
+        this.blockElm.classList.add("block");
+        this.blockElm.style.width = this.width + "px";
+        this.blockElm.style.height = this.height + "px";
+        this.blockElm.style.left = this.positionX + "px";
+        this.blockElm.style.bottom = this.positionY + "px";
 
 
         const parentElm = document.getElementById("game");
-        parentElm.appendChild(newElm);
+        parentElm.appendChild(this.blockElm);
     }
     moveLeft() {
         this.positionX -= 10;
-        console.log(`moving left ${this.positionX}`);
+        this.blockElm.style.left = this.positionX + "px"
 
     }
 }
 
 const player = new Player();
 
-const blo1 = new Block();
-const blo2 = new Block();
-const blo3 = new Block();
-const blo4 = new Block();
+const blockArr = [];
 
+/*setInterval(() => {
+    blo1.moveLeft();
+}, 1000);*/
+setInterval(() => {
+    const newBlock = new Block();
+    blockArr.push(newBlock);
+}, 2000);
 
+setInterval(() => {
+    blockArr.forEach((blockInstance) => {
+        blockInstance.moveLeft();
+    });
+}, 50);
 
 
 document.addEventListener("keydown", (e) => {
