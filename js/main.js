@@ -3,7 +3,7 @@ class Player {
         this.positionX = 0;
         this.positionY = 0;
         this.height = 50;
-        this.width = 20;
+        this.width = 30;
 
 
         const playerElm = document.getElementById("player");
@@ -85,7 +85,7 @@ class bigBlock {
     constructor() {
         this.positionX = 500;
         this.positionY = 0;
-        this.height = 80;
+        this.height = 100;
         this.width = 50;
         this.bigBlockElm = null;
 

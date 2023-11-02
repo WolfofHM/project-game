@@ -1,32 +1,73 @@
 body {
+    height: 100vh; 
+    margin: 0; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
     background-color: rgb(68, 131, 186);
+    flex-direction: column;
+}
+#container {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    margin-top: 100px;
 }
  #game {
     width: 800px;
     height: 400px;
     position: relative;
-    border: 20px black;
+    border: 20px solid black;
     background-color: aquamarine;
-    margin: 100px;
-    padding: 100px;
+    background-image: url('/images/istanbul-city-illustration-free-vector.jpg');
+    background-size: cover;
+    background-position: center;
+    box-sizing: border-box;
+    margin-top: 200px;
+    
+    
+    
 } 
+
+#side-text {
+    width: 200px;
+    padding: 20px;
+
+}
+#side-text ul {
+    list-style-type: none; 
+    padding: 0; 
+    margin: 0; 
+    
+
+}
+
+#side-text li {
+    padding: 10px 0; 
+    line-height: 1.5;
+}
 #player {
    
-    background-color: red;
-    position:absolute;
-    
-
-    
-
+    background-image: url('/images/sr2310ec21c98aws3.png'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    position: absolute;
 } 
 .block {
 
-    background-color: rgb(40, 84, 110);
+    background-image: url('/images/snake.png');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
     position: absolute;
 }
 .bigBlock {
-    background-color: yellow;
-
-position: absolute;
+    background-image: url('/images/Hulk.png');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    position: absolute;
 }
+
 
