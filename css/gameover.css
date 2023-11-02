@@ -1,7 +1,26 @@
 #page {
 text-align: center;
-background-color: rgb(43, 202, 226);
+background-color: rgb(0, 0, 0);
 }
-#h1 {
-    text-decoration-color: rgba(255, 0, 0, 0.347);
+h1 {
+    color: rgba(255, 0, 0, 0.831);
+}
+a {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+a:hover, a:focus {
+    background-color: #0056b3;
+    text-decoration: none;
+    outline: none;
 }
