@@ -190,4 +190,4 @@ document.addEventListener("keydown", (e) => {
             break;
     }
 });
-
+audioElement.play();
