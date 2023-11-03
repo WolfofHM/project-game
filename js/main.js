@@ -127,7 +127,13 @@ setInterval(() => {
     bigBlockArr.forEach((bigBlockInstance) => {
        
         bigBlockInstance.moveLeft();
-       
+
+        if(bigBlockInstance.positionX + bigBlockInstance.width < 0 ) {
+            bigBlockInstance.bigBlockElm.remove();
+            bigBlockArr.shift();
+        }
+
+
         if (
             player.positionX < bigBlockInstance.positionX + bigBlockInstance.width &&
             player.positionX + player.width > bigBlockInstance.positionX &&
